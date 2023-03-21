@@ -6,20 +6,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='plugins/fontawesome-free/css/all.min.css') }}">
+<!-- Font Awesome CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='plugins/fontawesome-free/css/all.min.css') }}">
 
-    <!-- AdminLTE CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/adminlte.min.css') }}">
+<!-- AdminLTE CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='dist/css/adminlte.min.css') }}">
 
-    <!-- jQuery -->
-    <script src="{{ url_for('static', filename='plugins/jquery/jquery.min.js') }}"></script>
+<<!-- jQuery -->
+<script src="{{ url_for('static', filename='plugins/jquery/jquery.min.js') }}"></script>
 
-    <!-- Bootstrap 4 -->
-    <script src="{{ url_for('static', filename='plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
-    <!-- AdminLTE for demo purposes -->
-    <script src="{{ url_for('static', filename='dist/js/demo.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ url_for('static', filename='dist/js/adminlte.js') }}"></script>
+
+<!-- Demo -->
+<script src="{{ url_for('static', filename='dist/js/demo.js') }}"></script>
 
     {% block head %}{% endblock %}
 
@@ -213,3 +216,4 @@
 
 </body>
 </html>
+
