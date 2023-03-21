@@ -154,7 +154,7 @@ def pedido(id):
     longitud_pedido = pedido.longitud
 
     # calcular el tiempo de llegada
-    api_key = 'AIzaSyCZ9yapP5kLGP5zzuIeXaQX2iiT-W0JinA'
+    api_key = ''
     origen = (latitud_repartidor, longitud_repartidor)
     destino = (latitud_pedido, longitud_pedido)
     coordenadas, tiempo_llegada = obtener_ruta_y_tiempo(origen, destino, api_key)
@@ -162,7 +162,7 @@ def pedido(id):
     # obtener los mensajes relacionados con el pedido
     mensajes = Mensaje.query.filter_by(pedido_id=id).order_by(Mensaje.fecha_hora).all()
 
-    return render_template('pedido.html', pedido=pedido, tiempo_llegada=tiempo_llegada, mensajes=mensajes, google_maps_api_key='AIzaSyCZ9yapP5kLGP5zzuIeXaQX2iiT-W0JinA')
+    return render_template('pedido.html', pedido=pedido, tiempo_llegada=tiempo_llegada, mensajes=mensajes, google_maps_api_key='')
 
 def obtener_ruta_y_tiempo(origen, destino, api_key):
     base_url = "https://maps.googleapis.com/maps/api/directions/json?"
