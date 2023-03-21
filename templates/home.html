@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="jumbotron">
+    <h1>Localiza tu pedido de NORI SUSHI & COCKTAILS</h1>
+
+    {% if current_user.is_authenticated %}
+      <p>¡Bienvenido de nuevo, {{ current_user.nombre }}!</p>
+    {% endif %}
+
+    <hr class="my-4">
+
+    <form action="{{ url_for('buscar_pedido') }}" method="GET" class="form-inline">
+      <div class="form-group">
+      <input type="text" class="form-control mb-2 mr-sm-2" id="pedido_id" name="pedido_id" placeholder="Número de pedido">
+      </div>
+      <button type="submit" class="btn btn-outline-primary mb-2">Buscar</button>
+    </form>
+
+    <hr class="my-4">
+
+    <form action="{{ url_for('crear_pedido') }}" method="POST">
+      <button type="submit" class="btn btn-outline-primary btn-lg">Crear pedido de prueba</button>
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Buscar Pedido</h1>
+    <form method="POST" action="{{ url_for('buscar_pedido') }}">
+    <div class="form-group">
+        <label for="id">Número de Pedido</label>
+        <input type="text" name="id" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+{% endblock %}

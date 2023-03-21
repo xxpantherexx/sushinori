@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prueba de Directions API</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZ9yapP5kLGP5zzuIeXaQX2iiT-W0JinA&libraries=places&callback=initMap" async defer></script>
+    <style>
+      #map {
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        const origin = { lat: 41.41154115961444, lng: 2.159733612028944 };
+        const destination = { lat: 41.37253234295861, lng: 2.173036395860016 };
+
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 15,
+          center: origin,
+        });
+
+        const directionsService = new google.maps.DirectionsService();
+        const directionsRenderer = new google.maps.DirectionsRenderer();
+        directionsRenderer.setMap(map);
+
+        const request = {
+          origin: origin,
+          destination: destination,
+          travelMode: "DRIVING",
+        };
+
+        directionsService.route(request, (result, status) => {
+          if (status === "OK") {
+            directionsRenderer.setDirections(result);
+          } else {
+            console.error("Error al obtener la ruta:", status);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

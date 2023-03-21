@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/tailwind.css') }}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+    <title>{% block title %}My App{% endblock %}</title>
+
+    <!-- Custom CSS -->
+    <style>
+        /* Navbar */
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .navbar-collapse {
+            justify-content: flex-end;
+        }
+
+        .nav-link {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Flash messages */
+        .alert {
+            margin-top: 1rem;
+        }
+
+        /* Forms */
+        form {
+            margin-top: 2rem;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 0.5rem 1.5rem;
+            margin-top: 1rem;
+        }
+
+        /* Content */
+        .jumbotron {
+            background-color: #fff;
+            border: 1px solid #eee;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-weight: bold;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        .btn-lg {
+            font-size: 1.5rem;
+            padding: 0.5rem 1.5rem;
+            margin-top: 2rem;
+        }
+   </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="{{ url_for('home') }}">NORI SUSHI & COCKTAILS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        {% if current_user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('logout') }}">Cerrar sesión</a>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('login') }}">Iniciar sesión</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('register') }}">Registrarse</a>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="container">
+      {% for message in get_flashed_messages() %}
+        <div class="alert alert-info">{{ message }}</div>
+      {% endfor %}
+      
+      {% block content %}
+      {% endblock %}
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>

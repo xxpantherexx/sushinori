@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Pedidos asignados a {{ repartidor.username }}</h1>
+
+  {% if pedidos %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Número de pedido</th>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Dirección de entrega</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for pedido in pedidos %}
+          <tr>
+            <td>{{ pedido.id }}</td>
+            <td>{{ pedido.producto }}</td>
+            <td>{{ pedido.cantidad }}</td>
+            <td>{{ pedido.direccion_entrega }}</td>
+            <td>{{ pedido.status }}</td>
+            <td>
+              <form action="{{ url_for('modificar_estado_pedido', id=pedido.id) }}" method="POST">
+                <div class="form-group">
+                  <select name="estado" class="form-control">
+                    <option value="pendiente" {% if pedido.status == 'pendiente' %}selected{% endif %}>Pendiente</option>
+                    <option value="en_camino" {% if pedido.status == 'en_camino' %}selected{% endif %}>En camino</option>
+                    <option value="entregado" {% if pedido.status == 'entregado' %}selected{% endif %}>Entregado</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Modificar estado</button>
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No hay pedidos asignados a {{ repartidor.username }}.</p>
+  {% endif %}
+{% endblock %}

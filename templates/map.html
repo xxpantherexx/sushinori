@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1>Repartidores</h1>
+        <div id="map" style="height: 500px;"></div>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}"></script>
+    <script>
+        function initMap() {
+            var center = {lat: 37.7749, lng: -122.4194};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: center
+            });
+            var marker = new google.maps.Marker({
+                position: center,
+                map: map,
+                title: 'Hello World!'
+            });
+        }
+        initMap();
+    </script>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Actualizar estado del pedido</h1>
+  <form method="POST" action="{{ url_for('actualizar_estado', id=pedido.id) }}">
+    <input type="hidden" name="id" value="{{ pedido.id }}">
+    <label for="status">Estado:</label>
+    <select name="status" id="status">
+      <option value="pendiente" {% if pedido.status == 'pendiente' %} selected {% endif %}>Pendiente</option>
+      <option value="en camino" {% if pedido.status == 'en camino' %} selected {% endif %}>En camino</option>
+      <option value="entregado" {% if pedido.status == 'entregado' %} selected {% endif %}>Entregado</option>
+    </select>
+    <button type="submit">Actualizar estado</button>
+  </form>
+{% endblock %}

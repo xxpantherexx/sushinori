@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Pedido #{{ pedido.id }}</h1>
+  <ul>
+    <li><strong>Restaurante:</strong> {{ pedido.restaurante.nombre }}</li>
+    <li><strong>Repartidor:</strong> {{ pedido.repartidor.nombre }}</li>
+    <li><strong>Cliente:</strong> {{ pedido.cliente.nombre }}</li>
+    <li><strong>Fecha y hora de creación:</strong> {{ pedido.fecha_creacion }}</li>
+    <li><strong>Estado:</strong> {{ pedido.estado }}</li>
+  </ul>
+  <h2>Lista de platos</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for plato in pedido.platos %}
+        <tr>
+          <td>{{ plato.nombre }}</td>
+          <td>{{ plato.cantidad }}</td>
+          <td>{{ plato.precio }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <p><a href="{{ url_for('lista_pedidos_repartidor', repartidor_id=current_user.id) }}">Volver a la lista de pedidos</a></p>
+{% endblock %}

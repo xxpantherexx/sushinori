@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Editar pedido</h1>
+  <form method="POST" action="{{ url_for('actualizar_pedido', id=pedido.id) }}">
+    <input type="hidden" name="id" value="{{ pedido.id }}">
+    <label for="producto">Producto:</label>
+    <input type="text" name="producto" id="producto" value="{{ pedido.producto }}">
+    <label for="cantidad">Cantidad:</label>
+    <input type="number" name="cantidad" id="cantidad" value="{{ pedido.cantidad }}">
+    <label for="direccion_entrega">Dirección de entrega:</label>
+    <input type="text" name="direccion_entrega" id="direccion_entrega" value="{{ pedido.direccion_entrega }}">
+    <button type="submit">Guardar cambios</button>
+  </form>
+{% endblock %}

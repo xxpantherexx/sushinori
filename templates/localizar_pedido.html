@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="form-wrapper">
+    <div class="localizar-pedido-form">
+      <h2>Localizar pedido</h2>
+      <form method="POST">
+        <div class="form-group">
+          <label for="pedido_id">Número de pedido</label>
+          <input type="text" class="form-control" id="pedido_id" name="pedido_id" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

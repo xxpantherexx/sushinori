@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h1>Ubicación del pedido #{{ pedido.id }}</h1>
+        <div id="map"></div>
+    </div>
+    <div class="col-md-4">
+        <h2>Detalles del pedido</h2>
+        <p><strong>Cliente:</strong> {{ pedido.cliente.nombre }}</p>
+        <p><strong>Dirección de entrega:</strong> {{ direccion_entrega }}</p>
+        <p><strong>Repartidor asignado:</strong> {{ repartidor.nombre }}</p>
+        <p><strong>Tiempo estimado de entrega:</strong> {{ tiempo_estimado }}</p>
+    </div>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key={{
