@@ -2,25 +2,26 @@
 <html lang="en">
 
 <head>
-<!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-  <!-- Font Awesome CSS -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/fontawesome-free/css/all.min.css') }}">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!-- AdminLTE CSS -->
-<link rel="stylesheet" href="{{ url_for('static', filename='dist/css/adminlte.min.css') }}">
-<!-- AdminLTE for demo purposes -->
-<script src="{{ url_for('static', filename='dist/js/demo.js') }}"></script>
-<!-- jQuery -->
-<script src="{{ url_for('static', filename='plugins/jquery/jquery.min.js') }}"></script>
-<!-- Bootstrap 4 -->
-<script src="{{ url_for('static', filename='plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<!-- Font Awesome Icons -->
-<link rel="stylesheet" href="{{ url_for('static', filename='plugins/fontawesome-free/css/all.min.css') }}">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='plugins/fontawesome-free/css/all.min.css') }}">
 
-  {% block head %}{% endblock %}
+    <!-- AdminLTE CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/adminlte.min.css') }}">
+
+    <!-- jQuery -->
+    <script src="{{ url_for('static', filename='plugins/jquery/jquery.min.js') }}"></script>
+
+    <!-- Bootstrap 4 -->
+    <script src="{{ url_for('static', filename='plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+    <!-- AdminLTE for demo purposes -->
+    <script src="{{ url_for('static', filename='dist/js/demo.js') }}"></script>
+
+    {% block head %}{% endblock %}
 
   <title>{% block title %}My App{% endblock %}</title>
 </head>
